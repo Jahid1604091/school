@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import logo from "@/app/assets/images/logo.png";
+import logo from "@/app/assets/images/logo.jpg";
 import { FiLogIn } from "react-icons/fi";
 import Submenu from "./Submenu";
 

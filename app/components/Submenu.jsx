@@ -47,7 +47,7 @@ const Submenu = () => {
       </button>
       
       {/* Menu List */}
-      <ul className={`absolute md:static top-full left-0 w-full md:w-auto bg-white border border-gray-200 shadow-lg rounded flex flex-col md:flex-row md:items-center justify-center p-2 space-y-2 md:space-y-0 md:space-x-4 transition-all duration-300 ${isMenuOpen ? 'block' : 'hidden md:flex'}`}>
+      <ul className={`absolute z-50 md:static top-full left-0 w-full md:w-auto bg-white border border-gray-200 shadow-lg rounded flex flex-col md:flex-row md:items-center justify-center p-2 space-y-2 md:space-y-0 md:space-x-4 transition-all duration-300 ${isMenuOpen ? 'block' : 'hidden md:flex'}`}>
         {menuItems.map((item, index) => (
           <li key={index} className="relative font-semibold">
             <button

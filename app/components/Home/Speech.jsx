@@ -4,12 +4,12 @@ import principal from "@/app/assets/images/principal.jpg";
 import Image from "next/image";
 const Speech = () => {
   return (
-    <section className="bg-gray-200 p-6 md:p-10">
+    <section className="bg-gray-200 p-6 md:p-16">
       <h2 className="text-2xl md:text-4xl font-bold text-black mb-10">
         Speech
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2">
-        <div className="flex flex-col md:flex-row items-center justify-center gap-10 p-6 m-6 bg-white">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-10 p-6  bg-white">
           <div className="w-full md:w-2/5 border shadow-2xl p-2">
             <Image
               src={minister}
@@ -37,7 +37,7 @@ const Speech = () => {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-center gap-10 p-6 m-6 bg-white">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-10 p-6 bg-white">
           <div className="w-full md:w-2/5 border shadow-2xl p-2">
             <Image
               src={principal}

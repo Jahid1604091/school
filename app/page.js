@@ -6,6 +6,7 @@ import About from './components/Home/About'
 import Speech from './components/Home/Speech'
 import NoticeBorad from './components/Home/NoticeBorad'
 import Academics from './components/Home/Academics'
+import Fees from './components/Home/Fees'
 
 const page = () => {
   return (
@@ -17,6 +18,7 @@ const page = () => {
       <Speech />
       <NoticeBorad />
       <Academics />
+      <Fees />
     </>
   )
 }

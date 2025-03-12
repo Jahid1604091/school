@@ -13,7 +13,7 @@ const slides = [hero1, hero2, hero3];
 
 export default function HeroSlider() {
   return (
-    <div className="relative overflow-hidden w-full ">
+    <div className="relative overflow-hidden w-full pb-16">
       <Swiper
         modules={[Autoplay, Navigation, Pagination]}
         spaceBetween={0}

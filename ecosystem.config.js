@@ -3,14 +3,16 @@ module.exports = {
       {
         name: 'stam-front',
         script: 'npm',
-        args: 'start', // Runs "npm start"
-        instances: 'max', // Uses all available CPU cores
-        exec_mode: 'cluster',
+        args: 'start',
+        instances: 1, // Use a single instance
+        exec_mode: 'fork', // Use fork mode for single instance
         autorestart: true,
         watch: false,
-        instance_var: 'INSTANCE_ID',
         max_memory_restart: '2G',
-        merge_logs: true,
+        env: {
+          NODE_ENV: 'production',
+          PORT: 5001, 
+        }
       }
     ]
   };

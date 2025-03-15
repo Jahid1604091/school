@@ -8,29 +8,36 @@ import NoticeBorad from './components/Home/NoticeBorad';
 import Academics from './components/Home/Academics';
 import Fees from './components/Home/Fees';
 
-async function fetchWithTimeout(url, timeout = 10000) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeout);
-
+async function getSpeeches() {
   try {
-    const res = await fetch(url, { signal: controller.signal });
-    clearTimeout(timer);
-    if (!res.ok) throw new Error(`Failed to fetch ${url}`);
-    return res.json();
+    const res = await fetch(`${process.env.BASE_URL}/speeches`);
+    if (!res.ok) throw new Error("Failed to fetch speeches");
+    return await res.json();
   } catch (error) {
-    console.error(`API Fetch Error (${url}):`, error);
-    return { data: [] }; // Return default empty data to prevent crashes
+    console.error("Speech API Fetch Error:", error);
+    return { data: [] }; // Return default data to prevent crashes
+  }
+}
+
+async function getNotices() {
+  try {
+    const res = await fetch(`${process.env.BASE_URL}/api/all/notice`);
+    if (!res.ok) throw new Error("Failed to fetch notices");
+    return await res.json();
+  } catch (error) {
+    console.error("Notice API Fetch Error:", error);
+    return { data: [] }; // Return default data to prevent crashes
   }
 }
 
 const page = async () => {
   // Fetch speech data
-  const speechData = await fetchWithTimeout(`${process.env.BASE_URL}/speeches`);
+  const speechData = await getSpeeches();
   const schoolSpeech = speechData.data.find(s => s.speechBy === 'About School' && s.visibility);
   const headSpeech = speechData.data.filter(s => s.speechBy !== 'About School' && s.visibility);
 
   // Fetch notice data
-  const noticeData = await fetchWithTimeout(`${process.env.BASE_URL}/api/all/notice`);
+  const noticeData = await getNotices();
 
   return (
     <>
@@ -47,4 +54,4 @@ const page = async () => {
 };
 
 export default page;
-export const dynamic = 'force-dynamic'; // Ensure fresh data in Next.js App Router
+

@@ -1,35 +1,40 @@
+async function getNotices() {
+  const res = await fetch(`https://stam.backend.khanmashrur.com/api/all/notice`);
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
+
+import Slider from './components/Home/Slider'
+import Count from './components/Home/Count'
+import Notice from './components/Home/Notice'
+import About from './components/Home/About'
+import Speech from './components/Home/Speech'
+import NoticeBorad from './components/Home/NoticeBorad'
+import Academics from './components/Home/Academics'
+import Fees from './components/Home/Fees'
+
 // async function getSpeeches() {
-//   try {
-//     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/speeches`);
-//     if (!res.ok) throw new Error("Failed to fetch speeches");
-//     return await res.json();
-//   } catch (error) {
-//     console.error("Speech API Fetch Error:", error);
-//     return { data: [] }; // Return default data to prevent crashes
+//   const res = await fetch(`${process.env.BASE_URL}/speeches`);
+//   if (!res.ok) {
+//     throw new Error("Failed to fetch data");
 //   }
+
+//   return res.json();
 // }
 
 
-import React from 'react';
-import Slider from './components/Home/Slider';
-import Count from './components/Home/Count';
-import Notice from './components/Home/Notice';
-import About from './components/Home/About';
-import Speech from './components/Home/Speech';
-import NoticeBorad from './components/Home/NoticeBorad';
-import Academics from './components/Home/Academics';
-import Fees from './components/Home/Fees';
 
+const Homepage = async () => {
+  //speech api
+  // const data = await getSpeeches();
+  // const schoolSpeech = data.data.find(s => s.speechBy === 'About School' && s.visibility)
+  // const headSpeech = data.data.filter(s => s.speechBy !== 'About School' && s.visibility)
 
-const page = () => {
-  // Fetch speech data
-  // const speechData = await getSpeeches();
-  // const schoolSpeech = speechData.data.find(s => s.speechBy === 'About School' && s.visibility);
-  // const headSpeech = speechData.data.filter(s => s.speechBy !== 'About School' && s.visibility);
-
-  // Fetch notice data
-  // const noticeData = await getNotices();
-
+  //notice api
+  const notice_data = await getNotices();
   return (
     <>
       <Slider />
@@ -37,12 +42,11 @@ const page = () => {
       <Notice />
       {/* <About speech={schoolSpeech} />
       <Speech speeches={headSpeech} /> */}
-      <NoticeBorad />
+      <NoticeBorad notices={notice_data} />
       <Academics />
       <Fees />
     </>
-  );
-};
+  )
+}
 
-export default page;
-
+export default Homepage

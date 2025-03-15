@@ -8,7 +8,7 @@ import Fees from "./components/Home/Fees";
 
 async function getNotices() {
   try {
-    const res = await fetch(`https://stam.backend.khanmashrur.com/api/all/notice`, { cache: "no-store" });
+    const res = await fetch(`https://stam.backend.khanmashrur.com/api/all/notice`);
     if (!res.ok) throw new Error("Failed to fetch data");
     return res.json();
   } catch (error) {

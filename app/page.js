@@ -10,9 +10,9 @@ async function getNotices() {
   try {
     const res = await fetch(`https://stam.backend.khanmashrur.com/api/all/notice`, { cache: "no-store" });
     if (!res.ok) throw new Error("Failed to fetch data");
-    return await res.json();
+    return res.json();
   } catch (error) {
-    console.error("Notice API Fetch Error:", error);
+    console.error("Error in Notice API Fetch:", error);
     return { data: [] };
   }
 }

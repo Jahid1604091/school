@@ -7,15 +7,23 @@ import Academics from "./components/Home/Academics";
 import Fees from "./components/Home/Fees";
 
 async function getNotices() {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 5000); // Timeout after 5 seconds
+
   try {
-    const res = await fetch(`https://stam.backend.khanmashrur.com/api/all/notice`);
+    const res = await fetch(`https://stam.backend.khanmashrur.com/api/all/notice`, {
+      signal: controller.signal,
+    });
+    clearTimeout(timeout);
+
     if (!res.ok) throw new Error("Failed to fetch data");
-    return res.json();
+    return await res.json();
   } catch (error) {
     console.error("Error in Notice API Fetch:", error);
-    return { data: [] };
+    return { data: [] }; // Return empty data to prevent crashes
   }
 }
+
 
 export default async function Homepage() {
   const noticeData = await getNotices();

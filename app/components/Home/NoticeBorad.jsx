@@ -4,7 +4,7 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import Link from "next/link";
-import dayjs from "dayjs";
+
 
 export default async function NoticeBoard({notices}) {
 
@@ -39,7 +39,7 @@ export default async function NoticeBoard({notices}) {
           <SwiperSlide key={index}>
             <div className="flex flex-col items-center justify-center min-h-[250px] md:h-[300px] text-black text-lg md:text-xl font-semibold p-6 rounded-lg shadow-lg text-center border-2 border-slate-950 bg-white">
               <span className="text-sm md:text-base text-gray-500">
-                {dayjs(notice.date).format('DD-MMM-YYYY hh:mm a')}
+               {notice.date}
               </span>
               <h3 className="text-lg md:text-2xl font-bold text-blue-700 mt-2">
                 {notice.noticeTitle}

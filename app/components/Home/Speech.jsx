@@ -2,6 +2,7 @@ import React from "react";
 import minister from "@/app/assets/images/minister.jpg";
 import principal from "@/app/assets/images/principal.jpg";
 import Image from "next/image";
+import Link from "next/link";
 
 const Speech = ({ speeches }) => {
   const ministerSpeech = speeches.find(
@@ -33,9 +34,9 @@ const Speech = ({ speeches }) => {
             <p className="text-gray-600 text-sm leading-loose md:text-lg">
               {ministerSpeech.speech}
             </p>
-            <button className="text-green-600 float-right p-2 px-6 my-6">
+            <Link href='/speeches' className="text-green-600 float-right p-2 px-6 my-6">
               More...
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -55,9 +56,9 @@ const Speech = ({ speeches }) => {
             <p className="text-gray-600 text-sm leading-loose md:text-lg">
               {principalSpeech.speech}
             </p>
-            <button className="text-green-600 float-right p-2 px-6 my-6">
+            <Link href='/speeches' className="text-green-600 float-right p-2 px-6 my-6">
               More...
-            </button>
+            </Link>
           </div>
         </div>
       </div>

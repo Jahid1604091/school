@@ -36,7 +36,7 @@ export default async function NoticeBoard({notices}) {
         className="w-full mx-auto"
       >
         {notices.map((notice, index) => (
-          <SwiperSlide key={index}>
+          <SwiperSlide key={notice.id}>
             <div className="flex flex-col items-center justify-center min-h-[250px] md:h-[300px] text-black text-lg md:text-xl font-semibold p-6 rounded-lg shadow-lg text-center border-2 border-slate-950 bg-white">
               <span className="text-sm md:text-base text-gray-500">
                 {dayjs(notice.date).format('DD-MMM-YYYY hh:mm a')}

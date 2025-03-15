@@ -1,6 +1,7 @@
 import React from "react";
 import about1 from "@/app/assets/images/about1.jpg";
 import Image from "next/image";
+import Link from "next/link";
 const About = ({speech}) => {
   return (
     <div className="flex flex-col md:flex-row items-center justify-center gap-10 p-6 md:p-16">
@@ -16,12 +17,12 @@ const About = ({speech}) => {
         <h2 className="text-2xl md:text-4xl font-bold text-white bg-blue-700 p-2 md:px-6 border border-black mb-4 w-fit shadow-lg">
           {speech.speechBy}
         </h2>
-        <p className="text-gray-600 text-sm leading-loose md:text-lg">
+        <p className="text-gray-600 text-sm leading-loose md:text-lg mb-6">
           {speech.speech}
         </p>
-        <button className="bg-slate-950 text-white p-2 px-6 my-6">
+        <Link href='/about-us' className="bg-slate-950 text-white p-2 px-6">
           Learn Now
-        </button>
+        </Link>
       </div>
     </div>
   );

@@ -37,7 +37,7 @@ const page = () => {
       <Notice />
       {/* <About speech={schoolSpeech} />
       <Speech speeches={headSpeech} /> */}
-      <NoticeBorad notices={noticeData} />
+      <NoticeBorad />
       <Academics />
       <Fees />
     </>

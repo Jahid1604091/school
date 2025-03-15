@@ -11,8 +11,7 @@ export default async function NoticeBoard() {
     `https://stam.backend.khanmashrur.com/api/all/notice`
   );
   if (!res.ok) throw new Error("Failed to fetch notices");
-  const notices = res.json();
-
+  const notices = await res.json();
   return (
     <div className="relative overflow-hidden w-full p-16">
       <div className="flex items-center justify-between md:border-b-4 border-green-700 mb-6">

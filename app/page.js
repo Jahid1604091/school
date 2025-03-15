@@ -1,6 +1,6 @@
 async function getSpeeches() {
   try {
-    const res = await fetch(`${process.env.BASE_URL}/speeches`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/speeches`);
     if (!res.ok) throw new Error("Failed to fetch speeches");
     return await res.json();
   } catch (error) {
@@ -11,7 +11,7 @@ async function getSpeeches() {
 
 async function getNotices() {
   try {
-    const res = await fetch(`${process.env.BASE_URL}/api/all/notice`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/all/notice`);
     if (!res.ok) throw new Error("Failed to fetch notices");
     return await res.json();
   } catch (error) {

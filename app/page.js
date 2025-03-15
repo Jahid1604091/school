@@ -1,13 +1,3 @@
-import React from 'react';
-import Slider from './components/Home/Slider';
-import Count from './components/Home/Count';
-import Notice from './components/Home/Notice';
-import About from './components/Home/About';
-import Speech from './components/Home/Speech';
-import NoticeBorad from './components/Home/NoticeBorad';
-import Academics from './components/Home/Academics';
-import Fees from './components/Home/Fees';
-
 async function getSpeeches() {
   try {
     const res = await fetch(`${process.env.BASE_URL}/speeches`);
@@ -29,6 +19,17 @@ async function getNotices() {
     return { data: [] }; // Return default data to prevent crashes
   }
 }
+
+import React from 'react';
+import Slider from './components/Home/Slider';
+import Count from './components/Home/Count';
+import Notice from './components/Home/Notice';
+import About from './components/Home/About';
+import Speech from './components/Home/Speech';
+import NoticeBorad from './components/Home/NoticeBorad';
+import Academics from './components/Home/Academics';
+import Fees from './components/Home/Fees';
+
 
 const page = async () => {
   // Fetch speech data

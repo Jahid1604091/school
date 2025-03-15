@@ -2,7 +2,15 @@ import React from "react";
 import minister from "@/app/assets/images/minister.jpg";
 import principal from "@/app/assets/images/principal.jpg";
 import Image from "next/image";
-const Speech = () => {
+
+const Speech = ({ speeches }) => {
+  const ministerSpeech = speeches.find(
+    (s) => s.speechBy === "Minister Speech" && s.visibility
+  );
+  const principalSpeech = speeches.find(
+    (s) => s.speechBy === "Principal Speech" && s.visibility
+  );
+
   return (
     <section className="bg-gray-200 p-6 md:p-16">
       <h2 className="text-2xl md:text-4xl font-bold text-black mb-10">
@@ -20,16 +28,10 @@ const Speech = () => {
 
           <div className="w-full md:w-3/5 text-center md:text-left leading-relaxed">
             <h4 className="text-green-600 text-2xl md:text-3xl mb-6">
-              Minister's Message
+              {ministerSpeech.speechBy}
             </h4>
             <p className="text-gray-600 text-sm leading-loose md:text-lg">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Exercitationem tenetur minima fugit dignissimos recusandae? Animi
-              velit, repellendus dolorum ex maiores cum inventore expedita
-              voluptate laudantium rem minima temporibus id nemo totam possimus
-              blanditiis sunt obcaecati quos facilis numquam pariatur minus?
-              Possimus, quasi delectus repellat harum consequatur necessitatibus
-              sit molestiae vero?
+              {ministerSpeech.speech}
             </p>
             <button className="text-green-600 float-right p-2 px-6 my-6">
               More...
@@ -48,16 +50,10 @@ const Speech = () => {
 
           <div className="w-full md:w-3/5 text-center md:text-left leading-relaxed">
             <h4 className="text-green-600 text-2xl md:text-3xl mb-6">
-              Principals's Message
+              {principalSpeech.speechBy}
             </h4>
             <p className="text-gray-600 text-sm leading-loose md:text-lg">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Exercitationem tenetur minima fugit dignissimos recusandae? Animi
-              velit, repellendus dolorum ex maiores cum inventore expedita
-              voluptate laudantium rem minima temporibus id nemo totam possimus
-              blanditiis sunt obcaecati quos facilis numquam pariatur minus?
-              Possimus, quasi delectus repellat harum consequatur necessitatibus
-              sit molestiae vero?
+              {principalSpeech.speech}
             </p>
             <button className="text-green-600 float-right p-2 px-6 my-6">
               More...
